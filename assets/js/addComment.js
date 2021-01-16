@@ -1,4 +1,5 @@
 import axios from "axios";
+import { handleDelete } from "./deleteComment";
 
 const addCommentForm = document.getElementById("jsAddComment");
 const commentList = document.getElementById("jsCommentList");
@@ -8,11 +9,17 @@ const increaseNumber = () => {
 	commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
 };
 
-const addComment = (comment) => {
+const addComment = (comment, commentId) => {
 	const li = document.createElement("li");
 	const span = document.createElement("span");
+	const button = document.createElement("button");
 	span.innerHTML = comment;
+	button.innerHTML = "X";
+	button.className = "jsDeleteComment";
+	button.value = commentId;
+	button.addEventListener("click", handleDelete);
 	li.appendChild(span);
+	li.appendChild(button);
 	commentList.prepend(li);
 	increaseNumber();
 };
@@ -26,8 +33,9 @@ const sendComment = async (comment) => {
 			comment, // postAddComment의 body의 comment에 들어감
 		},
 	});
+	const commentId = response.data.commentId;
 	if (response.status === 200) {
-		addComment(comment);
+		addComment(comment, commentId);
 	}
 };
 

@@ -152,6 +152,29 @@ export const postAddComment = async (req, res) => {
 		});
 		video.comments.push(newComment.id); // append 와 push 순서 반대
 		video.save();
+		res.send({ commentId: newComment.id });
+	} catch (error) {
+		res.status(400);
+		res.end();
+	}
+};
+
+// delete comment
+
+export const postDeleteComment = async (req, res) => {
+	console.log("delete commnet AAA");
+	const {
+		params: { id },
+	} = req;
+	console.log(id);
+	try {
+		const comment = await Comment.findById(id);
+		if (comment.creator != req.user.id) {
+			throw Error();
+		} else {
+			await Comment.findOneAndRemove({ _id: id });
+		}
+		console.log("delete comment");
 	} catch (error) {
 		res.status(400);
 	} finally {

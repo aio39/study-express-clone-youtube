@@ -13,6 +13,7 @@ import passport from "passport";
 import MongoStore from "connect-mongo";
 import session from "express-session";
 import mongoose from "mongoose";
+import flash from "express-flash";
 
 import "./passport";
 
@@ -36,6 +37,9 @@ app.use(
 		store: new CookieStore({ mongooseConnection: mongoose.connection }),
 	})
 );
+
+app.use(flash());
+
 app.use(passport.initialize());
 app.use(passport.session());
 

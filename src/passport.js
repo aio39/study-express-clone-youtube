@@ -12,7 +12,7 @@ passport.use(
 		{
 			clientID: process.env.GH_ID,
 			clientSecret: process.env.GH_SECRET,
-			callbackURL: `http://localhost:4000${routes.githubCallback}`,
+			callbackURL: process.env.PRODUCTION ? `https://gentle-shelf-81235.herokuapp.com${routes.githubCallback}` : `http://localhost:4000${routes.githubCallback}`,
 		},
 		githubLoginCallback
 	)

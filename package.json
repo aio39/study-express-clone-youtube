@@ -8,7 +8,6 @@
 		"autoprefixer": "^9.3.1",
 		"aws-sdk": "^2.831.0",
 		"axios": "^0.21.1",
-		"babel": "^6.23.0",
 		"babel-eslint": "^10.1.0",
 		"babel-loader": "^8.0.4",
 		"body-parser": "^1.18.3",
@@ -47,11 +46,10 @@
 		"copyAll": "cp -R src/static build && cp -R src/views build",
 		"build": "npm run build:server && npm  run build:assets && npm run copyAll",
 		"prebuild": "rm -rf build",
-		"start": "node build/init.js",
+		"start": "PRODUCTION=true  node build/init.js",
 		"prestart": "npm run build"
 	},
 	"devDependencies": {
-		"babel-cli": "^6.26.0",
 		"@babel/cli": "^7.12.10",
 		"@babel/core": "^7.12.10",
 		"@babel/preset-env": "^7.12.11",

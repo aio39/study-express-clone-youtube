@@ -4,11 +4,7 @@
 	"description": "Cloning Youtube with Vanilla and NodeJS",
 	"author": "Nicolás Serrano Arévalo",
 	"dependencies": {
-		"@babel/cli": "^7.12.10",
-		"@babel/core": "^7.1.5",
-		"@babel/node": "^7.12.10",
-		"@babel/polyfill": "^7.0.0",
-		"@babel/preset-env": "^7.1.5",
+		"@babel/polyfill": "^7.12.1",
 		"autoprefixer": "^9.3.1",
 		"aws-sdk": "^2.831.0",
 		"axios": "^0.21.1",
@@ -55,8 +51,9 @@
 		"prestart": "npm run build"
 	},
 	"devDependencies": {
-		"babel-cli": "^6.26.0",
-		"babel-core": "^6.26.3",
+		"@babel/cli": "^7.12.10",
+		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
 		"eslint": "^5.9.0",
 		"eslint-config-airbnb-base": "^13.1.0",
 		"eslint-config-prettier": "^3.3.0",
